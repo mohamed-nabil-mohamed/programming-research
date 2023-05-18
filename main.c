@@ -153,7 +153,7 @@ void delet(struct node** head,int clinicNumber){
         free(temp);
         printf("\nyour id is successfully deleted\n\n");
       }
-      else if(clinicNumber==((*head->next)->clinic_number)){
+      else if(clinicNumber==(((*head)->next)->clinic_number)){
         temp=(*head)->next;
         (*head)->next=temp->next;
         free(temp);
