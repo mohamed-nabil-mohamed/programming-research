@@ -54,13 +54,13 @@ int main()
 }
 }
 
-menu(){
+void menu(){
     printf("\nhello check our menu:- \n\n");
 printf(" 1- new patient\n 2- delete your id \n 3- check your id \n 4- display all patients id alphabetically\n\n");
 printf("please choose your option : \n");
 
 }
-new_patient(struct node** head){
+void new_patient(struct node** head){
 
 struct node* original_header=*head;
 struct node* new_node=(struct node*)malloc(sizeof(struct node));
@@ -141,7 +141,7 @@ new_node->next=*head;
 printf("\nyour id is registered with clinic number %d \n\n",new_node->clinic_number);
 }
 
-delet(struct node** head,int clinicNumber){
+void delet(struct node** head,int clinicNumber){
     if (clinicNumber>(*head)->clinic_number){
         printf("\nthis id is not registered\n\n");
     }
@@ -153,7 +153,7 @@ delet(struct node** head,int clinicNumber){
         free(temp);
         printf("\nyour id is successfully deleted\n\n");
       }
-      else if(clinicNumber==((*head)->clinic_number)-1){
+      else if(clinicNumber==((*head->next)->clinic_number)){
         temp=(*head)->next;
         (*head)->next=temp->next;
         free(temp);
@@ -194,7 +194,7 @@ if(test==0)printf("\nthis id is not registered\n\n");
 
 
 
-display_all_patients(struct node* top){
+void display_all_patients(struct node* top){
 char test,test2;
 if(top==NULL){
     printf("\nthere is no patient in the list\n\n");
